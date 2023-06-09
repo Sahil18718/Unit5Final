@@ -1,7 +1,7 @@
 const express = require("express")
 const apirouter = express.Router()
 
-// const fetch = require("node-fetch")
+const fetch = require("node-fetch")
 const Redis = require("ioredis")
 const redis = new Redis()
 

@@ -5,11 +5,11 @@ const Redis = require("ioredis")
 const redis=new Redis()
 
 const auth = async (req,res,next)=>{
-    const token = req.headers.authorization.split(" ")[1]
+    const token = req.headers.authorization?.split(" ")[1]
 
 
     try {
-        const blacklisted = await redis.get({"token":token})
+        const blacklisted = await redis.get(token)
         
         if (blacklisted) {
             return res.status(400).json({"msg":"Unauthorized1"})
